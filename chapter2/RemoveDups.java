@@ -19,7 +19,7 @@ public class RemoveDups {
 		printList(head);
 	}
 	public static void removeDups1(Node n) {
-		HashSet set = new HashSet();
+		HashSet<Character> set = new HashSet<Character>();
 		Node previous = null;
 		while(n != null) {
 			if(set.contains(n.data)) {

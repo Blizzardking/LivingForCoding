@@ -4,7 +4,7 @@ public class WeaveNodes {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String s = "acegbdfh";
+		String s = "acegbdfhi";
 		Node head = makeLinkedList(s);
 		printList(head);
 		weaveNodes(head);
@@ -20,8 +20,10 @@ public class WeaveNodes {
 			p1 = p1.next;
 			p2 = p2.next.next;
 		}
+		boolean isOdd = false;
 		if(p2 != null) {
 			p1 = p1.next;
+			isOdd = true;
 		}
 		p2 = head;
 		Node temp1, temp2;
@@ -33,7 +35,15 @@ public class WeaveNodes {
 			p1 =  temp1;
 			p2 = temp2;
 		}
-		p2.next = p1;
+		if(isOdd) {
+			temp1 = p2.next;
+			p2.next = p1;
+			p1.next = temp1;
+			temp1.next = null;
+		}
+		else {
+			p2.next = p1;
+		}
 	}
 	static Node makeLinkedList(String s) {
 		Node p1;
